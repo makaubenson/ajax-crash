@@ -15,9 +15,15 @@
       function loadText() {
         // Create XHR Object
         var xhr = new XMLHttpRequest();
-        //OPEN- type, url/file , async
+        //OPEN- type, url/file , async(true or false)
+        xhr.open("GET", "sample.txt", true);
 
-        console.log(xhr);
+        xhr.onload = function () {
+          if (this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhr.send();
       }
     </script>
   </body>
