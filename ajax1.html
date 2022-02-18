@@ -18,12 +18,12 @@
         // Create XHR Object
         var xhr = new XMLHttpRequest();
         //OPEN- type, url/file , async(true or false)
-        xhr.open("GET", "sample.txt", true);
-        //console.log("READYSTATE: ", xhr.readyState);
+        xhr.open("GET", "sampleg.txt", true);
+        console.log("READYSTATE: ", xhr.readyState);
 
         // OPTIONAL -used for loaders
         xhr.onprogress = function () {
-          // console.log("READYSTATE: ", xhr.readyState);
+          console.log("READYSTATE: ", xhr.readyState);
         };
 
         //method 1
@@ -31,6 +31,8 @@
           if (this.status == 200) {
             //console.log(this.responseText);
             document.getElementById("text").innerHTML = this.responseText;
+          } else if (this.status == 404) {
+            document.getElementById("text").innerHTML = "Not Found";
           }
         };
         //If you use onload you have to use onerror method
