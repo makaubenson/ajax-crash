@@ -6,5 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajax 1- Text File</title>
   </head>
-  <body></body>
+  <body>
+    <button id="button">Get Text File</button>
+
+    <script>
+      document.getElementById("button").addEventListener("click", loadText);
+
+      function loadText() {
+        console.log("Button clicked");
+      }
+    </script>
+  </body>
 </html>
