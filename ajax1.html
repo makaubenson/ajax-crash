@@ -8,7 +8,9 @@
   </head>
   <body>
     <button id="button">Get Text File</button>
-
+    <br />
+    <br />
+    <div id="text"></div>
     <script>
       document.getElementById("button").addEventListener("click", loadText);
 
@@ -17,18 +19,23 @@
         var xhr = new XMLHttpRequest();
         //OPEN- type, url/file , async(true or false)
         xhr.open("GET", "sample.txt", true);
-        console.log("READYSTATE: ", xhr.readyState);
+        //console.log("READYSTATE: ", xhr.readyState);
 
         // OPTIONAL -used for loaders
         xhr.onprogress = function () {
-          console.log("READYSTATE: ", xhr.readyState);
+          // console.log("READYSTATE: ", xhr.readyState);
         };
 
         //method 1
         xhr.onload = function () {
           if (this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
+            document.getElementById("text").innerHTML = this.responseText;
           }
+        };
+        //If you use onload you have to use onerror method
+        xhr.onerror = function () {
+          console.log("Request Error");
         };
 
         //Method 2: Onready state change
