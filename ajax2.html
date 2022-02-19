@@ -23,7 +23,9 @@
         xhr.open("GET", "user.json", true);
         xhr.onload = function () {
           if (xhr.status == 200) {
-            console.log(this.responseText);
+            //get specific user name from the json file
+            var user = JSON.parse(this.responseText);
+            console.log(user.name);
           }
         };
         xhr.send();
