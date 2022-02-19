@@ -15,5 +15,19 @@
     <div class="user"></div>
     <h1>Users</h1>
     <div class="users"></div>
+
+    <script>
+      document.getElementById("button1").addEventListener("click", loadUser);
+      function loadUser() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "user.json", true);
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhr.send();
+      }
+    </script>
   </body>
 </html>
